@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈悦琛 - 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --border-color: #bdc3c7;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 30px 40px;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .name-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .name-title h2 {
+            font-weight: 400;
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+        
+        .resume-body {
+            display: flex;
+            padding: 0;
+        }
+        
+        .left-column {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 30px;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .right-column {
+            flex: 2;
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .education-item, .experience-item, .activity-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .education-item::before, .experience-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+        
+        .education-item::after, .experience-item::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            bottom: -25px;
+            width: 2px;
+            background: var(--border-color);
+        }
+        
+        .education-item:last-child::after, .experience-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-header h3 {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+        
+        .date {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .company {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .location {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        
+        ul li {
+            margin-bottom: 6px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: #e1f0fa;
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .language-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .language {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .language h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .level {
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .level-bar {
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 3px;
+        }
+        
+        .level-90 { width: 90%; }
+        .level-85 { width: 85%; }
+        .level-80 { width: 80%; }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-body {
+                flex-direction: column;
+            }
+            
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .language-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .contact-info {
+                text-align: left;
+                margin-top: 15px;
+            }
+            
+            .contact-info p {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <div class="header-content">
+                <div class="name-title">
+                    <h1>陈悦琛</h1>
+                    <h2>金融学硕士 | 复合型金融人才</h2>
+                </div>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> 17366637169（微信同号）</p>
+                    <p><i class="fas fa-envelope"></i> c441059929@163.com</p> 
+                    <p><i class="fas fa-map-marker-alt"></i> 现居地：上海 | 家乡：浙江湖州</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="resume-body">
+            <div class="left-column">
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> 教育背景</h3>
+                    <div class="education-item">
+                        <div class="timeline-header">
+                            <h3>上海对外经贸大学</h3>
+                            <span class="date">2024.09 - 2026.06</span>
+                        </div>
+                        <p>金融学硕士</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="timeline-header">
+                            <h3>浙江工商大学</h3>
+                            <span class="date">2023.09 - 2024.06</span>
+                        </div>
+                        <p>法学（第二学位）</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="timeline-header">
+                            <h3>浙江工商大学</h3>
+                            <span class="date">2019.09 - 2023.06</span>
+                        </div>
+                        <p>金融学（CFA实验班）</p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="timeline-header">
+                            <h3>湖州市第二中学</h3>
+                            <span class="date">2016.09 - 2019.06</span>
+                        </div>
+                        <p>创新实验班（提前批保送）</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-tools"></i> 技能与特长</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>证书</h4>
+                            <div class="tags">
+                                <span class="tag">CET-4</span>
+                                <span class="tag">CET-6</span>
+                                <span class="tag">浙江省高校计算机二级优秀证书(office)</span>
+                                <span class="tag">证券从业资格证</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>计算机能力</h4>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">R语言</span>
+                                <span class="tag">Excel VBA</span>
+                                <span class="tag">LATEX</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>个性特长</h4>
+                            <div class="tags">
+                                <span class="tag">复合视角</span>
+                                <span class="tag">批判性思维</span>
+                                <span class="tag">沟通表达</span>
+                                <span class="tag">团队协作</span>
+                                <span class="tag">创新执行力</span>
+                                <span class="tag">抗压能力</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>文体特长</h4>
+                            <div class="tags">
+                                <span class="tag">古典吉他七级</span>
+                                <span class="tag">50米自由泳</span>
+                                <span class="tag">19.11KM毅行</span>
+                                <span class="tag">辩论队长</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-language"></i> 语言能力</h3>
+                    <div class="language-container">
+                        <div class="language">
+                            <h4>英语</h4>
+                            <p>CET-6</p>
+                            <div class="level">
+                                <div class="level-bar level-90"></div>
+                            </div>
+                        </div>
+                        <div class="language">
+                            <h4>普通话</h4>
+                            <p>标准流利</p>
+                            <div class="level">
+                                <div class="level-bar level-90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i> 实习经历</h3>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">绿技金创（上海）低碳科技有限公司</h3>
+                            <span class="date">2025.04 - 2025.08</span>
+                        </div>
+                        <p class="location">上海 | ESG政策分析师实习生</p>
+                        <ul>
+                            <li>协助科技部与发展中国家ESG治理培训项目对接国际客户，制作双语材料</li>
+                            <li>参与两项ESG信息披露（金融/供应链）规范制定，起草配套文书</li>
+                            <li>系统梳理国内双碳、ESG及碳足迹政策体系</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">浙商证券股份有限公司</h3>
+                            <span class="date">2024.12 - 2025.03</span>
+                        </div>
+                        <p class="location">上海 | 债券投行部</p>
+                        <ul>
+                            <li>收集企业财务及经营数据，完成债券发行底稿编制</li>
+                            <li>深度参与5+企业债/公司债/中期票据项目</li>
+                            <li>多次往返沪杭归档合规文件、加急递送签字函</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">长江证券承销保荐有限公司</h3>
+                            <span class="date">2024.12 - 2025.02</span>
+                        </div>
+                        <p class="location">上海 | 财务部</p>
+                        <ul>
+                            <li>独立审核报销单据200+笔，执行经费超标审查</li>
+                            <li>高效校对会计凭证300+份，实现零差错操作</li>
+                            <li>招待及协助会计师事务所完成外部审计</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">华安证券股份有限公司</h3>
+                            <span class="date">2024.06 - 2024.11</span>
+                        </div>
+                        <p class="location">上海 | 行业分析（电力及新能源组）</p>
+                        <ul>
+                            <li>维护特高压项目表（15项），更新招标节点并清洗数据</li>
+                            <li>合作完成3家上市公司财务模型构建</li>
+                            <li>攥写电力行业报告，分析国外电力市场改革</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">方正证券股份有限公司</h3>
+                            <span class="date">2024.05 - 2024.06</span>
+                        </div>
+                        <p class="location">杭州 | 文二路营业部</p>
+                        <ul>
+                            <li>参与日常培训及私募闭门研讨会</li>
+                            <li>向同城私募基金发起合作邀约、组织面谈、上门拜访</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-tasks"></i> 活动与项目经历</h3>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">上海交通大学上海高级金融学院</h3>
+                            <span class="date">2025.04 - 2025.07</span>
+                        </div>
+                        <p>档案助理及活动志愿者</p>
+                        <ul>
+                            <li>审核并归档300+毕业生人事档案，制作学位论文答辩决议书</li>
+                            <li>协助策划执行毕业典礼，负责场地协调、流程设计</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">"正大杯"第十五届全国大学生市场调查与分析大赛</h3>
+                            <span class="date">2025.02 - 2025.03</span>
+                        </div>
+                        <p>上海对外经贸大学研究生组 | 三等奖</p>
+                        <ul>
+                            <li>设计调查问卷，制作案例报告与汇报PPT</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">《政府数据平台开放的政策效应影响》系列研究</h3>
+                            <span class="date">2024.11 - 2025.08</span>
+                        </div>
+                        <p>独立研究员</p>
+                        <ul>
+                            <li>分析对碳排放/企业违约等的影响</li>
+                            <li>Python违约数据清洗，构建多期DID模型</li>
+                            <li>拟投经济核心期刊</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">"云间·农商杯"金融案例分析大赛</h3>
+                            <span class="date">2024.10 - 2024.12</span>
+                        </div>
+                        <p>队长 | 第二十七届上海对外经贸大学</p>
+                        <ul>
+                            <li>招募团队成员，代表队伍参加初赛笔试筛选</li>
+                            <li>合作完成案例报告撰写并协调进度，完成现场答辩</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="timeline-header">
+                            <h3 class="company">浙江工商大学证券投资竞赛</h3>
+                            <span class="date">2021.8 - 2021.12</span>
+                        </div>
+                        <p>三等奖</p>
+                        <ul>
+                            <li>《基于ESG选股及NFT多空力量择时的量化交易策略》</li>
+                            <li>负责策略代码实现与程序调试</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 陈悦琛 | 更新于2025年 | 本简历仅用于求职目的</p>
+        </footer>
+    </div>
+</body>
+</html>
